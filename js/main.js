@@ -2,11 +2,14 @@
     var audio = document.getElementById("audio-"+idboton);
     audio.play();
   }
+function reload() {
+    location.reload()
+}
   currentplayer = document.getElementById("jugando")
   currentround = document.getElementById("ronda")
   playerpattern = []
   gamepattern = []
-  round = 1
+  round = 0
 function gameStart(){
     startbutton = document.getElementById("comenzar-juego")
     console.log(startbutton.id)
@@ -55,15 +58,14 @@ if (currentplayer.innerHTML === "Turno del Jugador") {
 
 function computerTurn() {
     document.getElementById("campodejuego").classList.toggle('computerturn')
-if (round > 0) {
+
     gamepattern.forEach((color, i) => {
         setTimeout(() => {
         document.getElementById(color).click();
         }, i * 1000);
       })
       round ++
-      currentround.innerHTML= "Ronda " + round   
-    };
+      currentround.innerHTML= "Ronda " + round ;
 
 setTimeout(() => {
 chosenNumber = Math.random()
@@ -90,5 +92,7 @@ document.getElementById("campodejuego").classList.toggle('computerturn')
 setTimeout(() => {currentplayer.innerHTML= "Turno del Jugador"}, 1000)}, 1000*gamepattern.length)}
 
 function gameOver(){
-    playAudio("gameover")    
+    playAudio("gameover")
+    document.getElementById("derrota").style = 'Display: block'    
+    document.getElementById("derrota").innerHTML = 'Has perdido después de ' + round + ' rondas. ¿Quieres volver a intentar?'    
 }

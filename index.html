@@ -14,10 +14,12 @@
 <body>
 <div id="campodejuego" class=container style="background-color: rgba(0,0,255,.1)">
 <button id="comenzar-juego" class="boton" style="background-color: rgb(255, 255, 255)" onclick="playAudio(this.id); gameStart()">Comenzar Juego!</button>
+<button id="derrota" style="background-color: rgb(255, 255, 255)" onclick="reload()">Has perdido! ¿Volver a empezar?</button>
 <div class="h-10" style="background-color: rgba(105, 105, 105, 0.699); height: 5%"> 
     <div class="row">
-    <div id="jugando" class="col-6 themed-grid-col" style="text-align: left;">Comencemos</div>
-    <div id="ronda" class="col-6 themed-grid-col" style="text-align: right;">Ronda 0</div>
+    <div id="jugando" class="col-4 themed-grid-col" style="text-align: left;">Comencemos</div>
+    <div id="reiniciar" class="col-4 themed-grid-col" style="text-align: center;"><button onclick="reload()">Reiniciar</button></div>
+    <div id="ronda" class="col-4 themed-grid-col" style="text-align: right;">Ronda 0</div>
     </div>
 </div>
 <div class="h-45" style="height: 45%"> 
